@@ -1,13 +1,23 @@
 'use strict'
 
 const assert = require('node:assert');
-const { hello } = require('.');
+const { hello, message } = require('.');
 
-function test() {
+function testHello() {
   const actual = hello();
   const expected = 'world';
 
   assert.strictEqual(actual, expected);
+  console.log('OK hello');
 }
 
-test();
+function testMessage() {
+  const actual = message();
+  const expected = 'world';
+
+  assert.strictEqual(actual, expected);
+  console.log('OK message');
+}
+
+testHello();
+testMessage();
