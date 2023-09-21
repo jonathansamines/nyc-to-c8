@@ -36,15 +36,15 @@ npx c8 check-coverage
 ## Check coverage after instrumentation (compiled script)
 
 ```bash
-npx tsup index.ts test.js --sourcemap
-npx nyc --exclude-after-remap node dist/test.js
-npx nyc check-coverage
+npx tsup index.ts test.js test-b.js --sourcemap
+npx nyc --nycrc-path .nycrc-compiled.json node dist/test.js
+npx nyc --nycrc-path .nycrc-compiled.json check-coverage
 ```
 
 ### c8
 
 ```bash
-npx tsup index.ts test.js --sourcemap
-npx c8 --nyrc-json node dist/test.js
-npx c8 --exclude-after-remap true check-coverage
+npx tsup index.ts test.js test-b.js --sourcemap
+npx c8 --config .nycrc-compiled.json node dist/test.js
+npx c8 --config .nycrc-compiled.json check-coverage
 ```
